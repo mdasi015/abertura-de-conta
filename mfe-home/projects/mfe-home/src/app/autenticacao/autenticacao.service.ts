@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { DadosCadastrais } from '../cadastro/dados-cadastrais';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,12 @@ export class AutenticacaoService {
     return this.http.post(
       'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados/buscarCPF', {
       cpf: cpf
-    }
-    )
+    })
+  }
+
+  Usuarios() {
+    return this.http.get<DadosCadastrais[]>(
+      'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados'
+    );
   }
 }
