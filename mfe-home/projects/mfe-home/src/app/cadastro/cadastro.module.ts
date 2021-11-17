@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CadastroRoutingModule } from './cadastro-routing.module';
 import { CadastroComponent } from './cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CadastroRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
   ]
