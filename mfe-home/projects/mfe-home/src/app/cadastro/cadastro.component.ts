@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -13,13 +14,13 @@ export class CadastroComponent implements OnInit {
 
   cadastroForm!: FormGroup;
   clientesCadastrados: DadosCadastrais[] = [];
-  authGuard = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private cadastroService: CadastroService,
     private router: Router,
     private route: ActivatedRoute,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -44,10 +45,24 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-  cadastrar() {
-    const cadastroUsuario = this.cadastroForm.getRawValue() as DadosCadastrais;
-    console.log(cadastroUsuario);
-    this.router.navigateByUrl('selfie');
+  onSubmit() {
+    /* const cadastro: DadosCadastrais = {}
+
+    this.cadastroService
+      .cadastrarCliente(cadastro)
+      .subscribe((data) => {
+        console.log(data);
+      });
+
+    console.log(cadastro);
   }
 
+  consultaCEP(cep: string) {
+    this.http.get(`//viacep.com.br/ws/${cep}/json/`)
+    .subscribe((dados: any) => console.log(dados))
+  }
+   */
 }
+}
+
+

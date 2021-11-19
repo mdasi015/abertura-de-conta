@@ -10,8 +10,8 @@ export class CadastroService {
 
   constructor(private http: HttpClient) { }
 
-  cadastraNovoUsuario(cadastro: DadosCadastrais) {
-    return this.http.post('http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/Clientes', cadastro)
+  cadastrarCliente(cadastro: DadosCadastrais) {
+    return this.http.post('http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/Clientes', cadastro);
   }
 
   verificaUsuarioExistente(cpf: string) {

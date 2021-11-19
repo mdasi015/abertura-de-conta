@@ -24,14 +24,15 @@ alt="Banner inicial"/>
       <h4> Insira seu CPF para começar </h4>
     </div>
     <div class="card-body">
-      <form class="cadastroForm" (ngSubmit)="consultaCPF()">
+      <form [formGroup]="cadastroForm" (ngSubmit)="consultaCPF()">
         <div class="form-group">
           <input
           class="form-control"
           maxlength="11"
           placeholder="Digite seu CPF"
-          [(ngModel)]="cpf"
+          formControlName="cpf"
           name="cpf"
+          mask="000.000.000-00"
           />
         </div>
         <p></p><button type="submit" class="btn text-white btn-warning btn-block fw-bold" id="button">Enviar</button>
