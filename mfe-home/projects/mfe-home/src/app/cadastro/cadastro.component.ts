@@ -13,7 +13,9 @@ import { DadosCadastrais } from './dados-cadastrais';
 export class CadastroComponent implements OnInit {
 
   cadastroForm: FormGroup;
-  clientesCadastrados: DadosCadastrais[] = [];
+  clienteDados: any = '';
+  cpf = '';
+  userData = false;
 
   constructor(
     private cadastroService: CadastroService,
@@ -32,7 +34,6 @@ export class CadastroComponent implements OnInit {
       endereco: new FormGroup({
         cep: new FormControl (null, [Validators.required, CadastroService.cepValidator]),
         numero: new FormControl (null, Validators.required),
-        complemento: new FormControl ( null),
         rua: new FormControl(null, Validators.required),
         bairro: new FormControl (null, Validators.required),
         cidade: new FormControl (null, Validators.required),
@@ -43,10 +44,54 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((queryParams: Params) => {
+      this.cpf = queryParams['cpf'];
+      this.userData = queryParams['userData'];
 
+      if (this.userData) {
+        this.dadosUsuario(this.cpf)
+      } else {
+        this.cadastroForm.patchValue({
+          cpf: this.cpf
+        })
+      }
+    });
+  }
+
+  dadosUsuario(cpf: string) {
+    this.cadastroService.inserirDados(cpf).subscribe(dados => {
+      //console.log(dados);
+      const conteudoForm: any = dados;
+      this.clienteDados = conteudoForm.cliente
+      //console.log(this.clienteDados)
+
+      this.popularDados(this.clienteDados);
+    })
+  }
+
+  popularDados(dados: DadosCadastrais) {
+    this.cadastroForm.patchValue({
+      nomeCompleto: dados.nomeCompleto,
+      email: dados.email,
+      cpf: dados.cpf,
+      dataNascimento: dados.dataNascimento,
+      dataCadastro: dados.dataCadastro,
+      salarioMensal: dados.salarioMensal,
+      senha: dados.senha,
+      endereco: {
+        cep: dados.endereco.cep,
+        numero: dados.endereco.numero,
+        rua: dados.endereco.rua,
+        bairro: dados.endereco.bairro,
+        cidade: dados.endereco.cidade,
+        estado: dados.endereco.estado,
+      },
+      numeroCelular: dados.numeroCelular,
+    })
   }
 
   onSubmit() {
+    console.log(this.cadastroForm);
 
   }
 

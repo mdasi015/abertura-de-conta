@@ -14,8 +14,9 @@ export class CadastroService {
     return this.http.post('http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/Clientes', cadastro);
   }
 
-  verificaUsuarioExistente(cpf: string) {
-    return this.http.post('http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados/buscarCPF', cpf)
+  inserirDados(cpf: string) {
+    return this.http.post('http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados/buscarCPF',
+      { cpf : cpf} );
   }
 
   static cepValidator(control: FormControl){
