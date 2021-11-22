@@ -25,7 +25,7 @@ alt="Banner inicial"/>
     </div>
     <div class="card-body">
       <form [formGroup]="cadastroForm" (ngSubmit)="consultaCPF()">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="aplicaCssErro('cpf')">
           <input
           class="form-control"
           maxlength="11"
@@ -33,7 +33,13 @@ alt="Banner inicial"/>
           formControlName="cpf"
           name="cpf"
           mask="000.000.000-00"
+          required
           />
+          <div
+          class="alert alert-danger" role="alert"
+          *ngIf="!cadastroForm.get('cpf')!.valid && cadastroForm.get('cpf')!.touched">
+             Digite seu CPF para começar.
+          </div>
         </div>
 
         <p></p><button type="submit" class="btn text-white btn-warning btn-block fw-bold" id="button">Enviar</button>

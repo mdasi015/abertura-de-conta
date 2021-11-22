@@ -4,13 +4,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CadastroService } from './cadastro.service';
 import { DadosCadastrais } from './dados-cadastrais';
+import { FormValidatorsComponent } from '../form-validators/form-validators.component';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent extends FormValidatorsComponent implements OnInit {
 
   cadastroForm: FormGroup;
   clienteDados: any = '';
@@ -23,6 +24,8 @@ export class CadastroComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient
   ) {
+    super();
+
     this.cadastroForm = new FormGroup({
       nomeCompleto: new FormControl (null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl (null, [Validators.required, Validators.email]),
@@ -91,6 +94,23 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     console.log(this.cadastroForm.value);
+  }
+
+  consultaCEP() {
+    let cep = this.cadastroForm.value.endereco.cep;
+
+    this.cadastroService.consultaCEP(cep).subscribe((data) => {
+      const endereco: any = data;
+      this.cadastroForm.patchValue({
+        endereco: {
+          cep: endereco.cep,
+          rua: endereco.logradouro,
+          bairro: endereco.bairro,
+          cidade: endereco.localidade,
+          estado: endereco.uf,
+        },
+      });
+    });
   }
 
   resetar() {

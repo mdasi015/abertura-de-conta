@@ -1,5 +1,5 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const INPUT_FIELD_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -15,9 +15,25 @@ const INPUT_FIELD_VALUE_ACCESSOR: any = {
 })
 export class FormValidatorsComponent implements OnInit {
 
+  cadastroForm!: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  verificaValidTouched(campo: any){
+
+    return !this.cadastroForm.get(campo)?.valid && this.cadastroForm.get(campo)?.touched
+
+    return !campo.valid && campo.touched;
+  }
+
+  aplicaCssErro(campo: any){
+    return {
+      'has-error': !campo.valid && campo.touched,
+      'has-feedback': !campo.valid && campo.touched
+    }
   }
 
 }
