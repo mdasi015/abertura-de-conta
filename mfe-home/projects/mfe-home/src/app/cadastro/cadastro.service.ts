@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { of } from 'rxjs';
 import { DadosCadastrais } from './dados-cadastrais';
 
 @Injectable({
@@ -19,14 +19,18 @@ export class CadastroService {
       { cpf : cpf} );
   }
 
-  static cepValidator(control: FormControl){
-    const cep = control.value;
-    if (cep && cep !== ''){
+  consultaCEP(cep: string){
+    console.log(cep);
+    cep = cep.replace(/\D/g, '');
+    if (cep !== ''){
       const validacep = /^[0-9]{8}$/;
-      return validacep.test(cep) ? null : { cepInvalido: true };
+      if(validacep.test(cep)) {
+        return this.http.get(`//viacep.com.br/ws/${cep}/json`);
+      }
     }
-    return null;
+    return of ({});
   }
+
 
 
 }

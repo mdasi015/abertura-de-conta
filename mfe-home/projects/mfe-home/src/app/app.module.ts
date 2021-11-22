@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { HomeModule } from './home/home.module';
 import { SelfieModule } from './selfie/selfie.module';
+import { FormValidatorsComponent } from './form-validators/form-validators.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormValidatorsComponent
   ],
   imports: [
     BrowserModule,

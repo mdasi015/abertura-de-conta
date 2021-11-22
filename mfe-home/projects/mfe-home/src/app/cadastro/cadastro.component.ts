@@ -32,7 +32,7 @@ export class CadastroComponent implements OnInit {
       salarioMensal: new FormControl (null, [Validators.required]),
       senha: new FormControl (null, [Validators.required, Validators.minLength(6)]),
       endereco: new FormGroup({
-        cep: new FormControl (null, [Validators.required, CadastroService.cepValidator]),
+        cep: new FormControl (null, [Validators.required]),
         numero: new FormControl (null, Validators.required),
         rua: new FormControl(null, Validators.required),
         bairro: new FormControl (null, Validators.required),
@@ -46,8 +46,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
-      this.userData = queryParams['userData'];
-
+      this.userData = queryParams['dataTrue'];
       if (this.userData) {
         this.dadosUsuario(this.cpf)
       } else {
@@ -91,15 +90,12 @@ export class CadastroComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.cadastroForm);
-
+    console.log(this.cadastroForm.value);
   }
 
-  consultaCEP(cep: string) {
-    this.http.get(`//viacep.com.br/ws/${cep}/json/`)
-    .subscribe((dados: any) => console.log(dados))
+  resetar() {
+    this.cadastroForm.reset();
   }
+
 
 }
-
-

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SelfieRoutingModule } from './selfie-routing.module';
 import { SelfieComponent } from './selfie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SelfieRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SelfieModule { }
