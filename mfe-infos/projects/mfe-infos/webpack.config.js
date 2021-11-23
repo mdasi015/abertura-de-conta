@@ -31,6 +31,7 @@ module.exports = {
         exposes: {
             './InfosModule': 'projects/mfe-infos/src/app/infos/infos.module.ts',
             './PlanosModule': 'projects/mfe-infos/src/app/planos/planos.module.ts',
+            './DashboardModule': 'projects/mfe-infos/src/app/dashboard/dashboard.module.ts',
         },
 
         // For hosts (please adjust)

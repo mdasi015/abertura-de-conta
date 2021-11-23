@@ -93,7 +93,9 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
   }
 
   onSubmit() {
-    console.log(this.cadastroForm.value);
+
+    this.router.navigate(['/selfie'])
+
   }
 
   consultaCEP() {

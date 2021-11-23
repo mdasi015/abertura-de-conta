@@ -28,7 +28,7 @@ export class HomeComponent extends FormValidatorsComponent implements OnInit {
   }
 
   consultaCPF() {
-    //console.log(this.cadastroForm);
+    console.log(this.cadastroForm);
     const cpfCliente = this.cadastroForm.value.cpf
     this.autenticacaoService.verificarCPF(cpfCliente)
     .subscribe((infos) => {

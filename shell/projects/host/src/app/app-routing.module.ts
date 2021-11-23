@@ -69,6 +69,17 @@ const routes: Routes = [
 
       },
 
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: 'http://localhost:3000/remoteEntry.js',
+            remoteName: 'mfeInfos',
+            exposedModule: './DashboardModule'
+          }).then((m) => m.DashboardModule)
+
+      },
+
 
       // {
       //   path: 'endereco',

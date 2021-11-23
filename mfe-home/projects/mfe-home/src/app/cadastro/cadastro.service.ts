@@ -21,7 +21,7 @@ export class CadastroService {
 
   consultaCEP(cep: string){
     console.log(cep);
-    cep = cep.replace(/\D/g, '');
+    cep = cep.toString().replace(/\D/g, '');
     if (cep !== ''){
       const validacep = /^[0-9]{8}$/;
       if(validacep.test(cep)) {
