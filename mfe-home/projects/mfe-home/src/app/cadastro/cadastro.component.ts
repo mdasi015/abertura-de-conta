@@ -96,10 +96,13 @@ export class CadastroComponent implements OnInit {
 
     const dadosCliente = this.cadastroForm.value;
     this.cadastroService.cadastrarCliente(dadosCliente)
+    .subscribe(dados => {
+      console.log(dados)
+    });
     if (dadosCliente) {
       this.router.navigate(['/selfie'], {
         queryParams: {
-          cpf: this.clienteDados.cpf.replace(/(\.|\/|\-)/g,""),
+          cpf: this.clienteDados.cpf || this.cpf,
           salarioMensal: salarioMensal
         },
       });

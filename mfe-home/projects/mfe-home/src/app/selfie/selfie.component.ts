@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-selfie',
@@ -20,6 +21,14 @@ export class SelfieComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((queryParams: Params) => {
+    this.cpf = queryParams['cpf'];
+    this.salarioMensal = queryParams['salarioMensal'];
+  });
+}
+
+
   onChange(event: any) {
     if (event.target.files && event.target.files[0]) {
       const selfie = event.target.files[0];
@@ -30,21 +39,13 @@ export class SelfieComponent implements OnInit {
       this.http.post(this.API, formData)
         .subscribe((resposta) => {
           console.log('Upload ok');
-          console.log(resposta);
+          //console.log(resposta);
 
           const foto: any = resposta;
 
           this.urlFoto = foto.url;
         });
     }
-  }
-
-
-  ngOnInit(): void {
-      this.route.queryParams.subscribe((queryParams: Params) => {
-      this.cpf = queryParams['cpf'];
-      this.salarioMensal = queryParams['salarioMensal'];
-    });
   }
 
   avancarPage() {
