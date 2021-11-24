@@ -13,7 +13,7 @@
 <div class="container">
   <div class="row">
   <div class="mb-3 col">
-    <form class="form-horizontal" (ngSubmit)="onSubmit()" role="form" [formGroup]="cadastroForm" #formulario="ngForm">
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup]="cadastroForm">
 
       <div class="form-group" [ngClass]="aplicaCssErro('nomeCompleto')">
         <label for="nomeCompleto" class="control-label">Nome Completo:</label>
@@ -146,8 +146,7 @@
 
           <div class="form-group" [ngClass]="aplicaCssErro('numeroCelular')">
             <label for="numeroCelular" class="control-label">Telefone:</label>
-            <input type="tel"
-            maxlength="11"
+            <input type="text"
             formControlName="numeroCelular"
             id="numeroCelular"
             class="form-control"
@@ -158,6 +157,7 @@
           class="btn text-white btn-warning btn-block fw-bold"
           id="button"
           style="margin: 0 10px;"
+          [disabled]="!cadastroForm.valid"
           >
           Cadastrar
           </button>
@@ -244,3 +244,5 @@
   </div>
   <!-- Copyright -->
 </footer>
+
+

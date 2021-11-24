@@ -1,5 +1,4 @@
 export interface DadosCadastrais {
-  _id: string;
   nomeCompleto: string;
   email: string;
   cpf: string;
@@ -16,6 +15,4 @@ export interface DadosCadastrais {
     estado: string;
   };
   numeroCelular: string;
-  status: number;
-  __v: number;
 }

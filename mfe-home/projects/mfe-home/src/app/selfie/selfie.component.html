@@ -32,7 +32,9 @@
         type="submit"
         class="btn text-white btn-warning btn-block fw-bold"
         (click)="avancarPage()"
-        arial="Enviar">
+        arial="Enviar"
+        [disabled]="!urlFoto"
+        >
       </div>
     </div>
   </div>

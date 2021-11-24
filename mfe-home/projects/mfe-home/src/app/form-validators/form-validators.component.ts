@@ -18,20 +18,4 @@ export class FormValidatorsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  verificaValidTouched(campo: any){
-
-    return !this.cadastroForm.get(campo)?.valid &&
-      this.cadastroForm.get(campo)?.touched
-
-    //return !campo.valid && campo.touched;
-  }
-
-  aplicaCssErro(campo: any){
-    return {
-      'has-error': this.verificaValidTouched(campo),
-      'has-feedback': this.verificaValidTouched(campo)
-    }
-  }
-
 }

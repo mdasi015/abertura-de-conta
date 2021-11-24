@@ -12,6 +12,7 @@ export class SelfieComponent implements OnInit {
   cpf: string = '';
   salarioMensal: string = '';
   API = 'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/uploadImage';
+  urlFoto = '';
 
   constructor(
     private http: HttpClient,
@@ -30,7 +31,11 @@ export class SelfieComponent implements OnInit {
         .subscribe((resposta) => {
           console.log('Upload ok');
           console.log(resposta);
-        })
+
+          const foto: any = resposta;
+
+          this.urlFoto = foto.url;
+        });
     }
   }
 

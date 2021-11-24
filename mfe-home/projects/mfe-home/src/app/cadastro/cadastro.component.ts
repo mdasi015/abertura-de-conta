@@ -4,14 +4,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CadastroService } from './cadastro.service';
 import { DadosCadastrais } from './dados-cadastrais';
-import { FormValidatorsComponent } from '../form-validators/form-validators.component';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent extends FormValidatorsComponent implements OnInit {
+export class CadastroComponent implements OnInit {
 
   cadastroForm: FormGroup;
   clienteDados: any = '';
@@ -24,10 +23,9 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
     private route: ActivatedRoute,
     private http: HttpClient
   ) {
-    super();
 
     this.cadastroForm = new FormGroup({
-      nomeCompleto: new FormControl (null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      nomeCompleto: new FormControl (null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
       email: new FormControl (null, [Validators.required, Validators.email]),
       cpf: new FormControl (null, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
       dataNascimento: new FormControl (null, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
@@ -42,7 +40,8 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
         cidade: new FormControl (null, Validators.required),
         estado: new FormControl (null, Validators.required),
       }),
-      numeroCelular: new FormControl (null, [Validators.required, Validators.minLength(11), Validators.maxLength(11)])
+      numeroCelular: new FormControl (null, [Validators.required, Validators.minLength(11), Validators.maxLength(18)]),
+      status: new FormControl (0)
     });
   }
 
@@ -68,7 +67,7 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
       //console.log(this.clienteDados)
 
       this.popularDados(this.clienteDados);
-    })
+    });
   }
 
   popularDados(dados: DadosCadastrais) {
@@ -80,6 +79,7 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
       dataCadastro: dados.dataCadastro,
       salarioMensal: dados.salarioMensal,
       senha: dados.senha,
+      numeroCelular: dados.numeroCelular,
       endereco: {
         cep: dados.endereco.cep,
         numero: dados.endereco.numero,
@@ -88,14 +88,24 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
         cidade: dados.endereco.cidade,
         estado: dados.endereco.estado,
       },
-      numeroCelular: dados.numeroCelular,
     })
   }
 
   onSubmit() {
+    const salarioMensal = this.cadastroForm.value.salarioMensal.replace(',', '.');
 
-    this.router.navigate(['/selfie'])
-
+    const dadosCliente = this.cadastroForm.value;
+    this.cadastroService.cadastrarCliente(dadosCliente)
+    if (dadosCliente) {
+      this.router.navigate(['/selfie'], {
+        queryParams: {
+          cpf: this.clienteDados.cpf.replace(/(\.|\/|\-)/g,""),
+          salarioMensal: salarioMensal
+        },
+      });
+    } else {
+      console.log('formulario invalido');
+    }
   }
 
   consultaCEP() {
@@ -119,5 +129,19 @@ export class CadastroComponent extends FormValidatorsComponent implements OnInit
     this.cadastroForm.reset();
   }
 
+  verificaValidTouched(campo: any){
+
+    return !this.cadastroForm.get(campo)?.valid &&
+      this.cadastroForm.get(campo)?.touched
+
+    //return !campo.valid && campo.touched;
+  }
+
+  aplicaCssErro(campo: any){
+    return {
+      'has-error': this.verificaValidTouched(campo),
+      'has-feedback': this.verificaValidTouched(campo)
+    }
+  }
 
 }

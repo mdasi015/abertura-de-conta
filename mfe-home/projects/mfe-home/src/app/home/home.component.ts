@@ -1,23 +1,21 @@
+import { HomeService } from './home.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AutenticacaoService } from '../autenticacao/autenticacao.service';
-import { FormValidatorsComponent } from '../form-validators/form-validators.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends FormValidatorsComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   cadastroForm: FormGroup;
 
   constructor(
-    private autenticacaoService: AutenticacaoService,
+    private homeService: HomeService,
     private router: Router,
   ) {
-    super();
 
     this.cadastroForm = new FormGroup({
       cpf: new FormControl('', Validators.required)
@@ -30,7 +28,7 @@ export class HomeComponent extends FormValidatorsComponent implements OnInit {
   consultaCPF() {
     console.log(this.cadastroForm);
     const cpfCliente = this.cadastroForm.value.cpf
-    this.autenticacaoService.verificarCPF(cpfCliente)
+    this.homeService.verificarCPF(cpfCliente)
     .subscribe((infos) => {
       const dados: any = infos.cliente
       if (dados) {

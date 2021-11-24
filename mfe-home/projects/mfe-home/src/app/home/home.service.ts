@@ -1,13 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { Observable } from 'rxjs';
-import { DadosCadastrais } from '../cadastro/dados-cadastrais';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService {
+export class HomeService {
 
   constructor(private http: HttpClient) { }
 
