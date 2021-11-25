@@ -18,12 +18,11 @@
     <div class="form-group">
       <label for="cpf" class="control-label">CPF:</label>
       <input type="text"
-      maxlength="11"
-      minlength="11"
-      formControlName="cpf"
-      id="cpf"
-      class="form-control"
-      disabled
+        formControlName="cpf"
+        id="cpf"
+        class="form-control"
+        [value]="infosCliente.cpf"
+        disabled
       />
     </div>
   </div>
@@ -32,10 +31,11 @@
     <div class="form-group">
       <label for="nomeCompleto" class="control-label">Nome Completo:</label>
       <input type="text"
-      formControlName="nomeCompleto"
-      id="nomeCompleto"
-      class="form-control"
-      disabled
+        formControlName="nomeCompleto"
+        id="nomeCompleto"
+        class="form-control"
+        [value]="infosCliente.nomeCompleto"
+        disabled
       >
     </div>
   </div>
@@ -44,10 +44,11 @@
     <div class="form-group">
       <label for="email" class="control-label">E-mail:</label>
       <input type="email"
-      formControlName="email"
-      id="email"
-      class="form-control"
-      disabled
+        formControlName="email"
+        id="email"
+        class="form-control"
+        [value]="infosCliente.email"
+        disabled
       />
     </div>
   </div>
@@ -56,12 +57,13 @@
     <div class="form-group">
       <label for="dataNascimento" class="control-label">Data de Nascimento:</label>
       <input type="text"
-      maxlength="10"
-      minlength="10"
-      formControlName="dataNascimento"
-      id="dataNascimento"
-      class="form-control"
-      disabled
+        maxlength="10"
+        minlength="10"
+        formControlName="dataNascimento"
+        id="dataNascimento"
+        class="form-control"
+        [value]="infosCliente.dataNascimento"
+        disabled
       />
     </div>
   </div>
@@ -70,12 +72,13 @@
     <div class="form-group">
       <label for="dataCadastro" class="control-label">Data de Cadastro:</label>
       <input type="text"
-      maxlength="10"
-      minlength="10"
-      formControlName="dataCadastro"
-      id="dataCadastro"
-      class="form-control"
-      disabled
+        maxlength="10"
+        minlength="10"
+        formControlName="dataCadastro"
+        id="dataCadastro"
+        class="form-control"
+        [value]="infosCliente.dataCadastro"
+        disabled
       />
     </div>
   </div>
@@ -84,10 +87,11 @@
     <div class="form-group">
       <label for="salarioMensal" class="control-label">Salario Mensal:</label>
       <input type="text"
-      formControlName="salarioMensal"
-      id="salarioMensal"
-      class="form-control"
-      disabled
+        formControlName="salarioMensal"
+        id="salarioMensal"
+        class="form-control"
+        [value]="infosCliente.salarioMensal"
+        disabled
       />
     </div>
   </div>
@@ -96,12 +100,13 @@
     <div class="form-group">
       <label for="senha" class="control-label">Senha:</label>
       <input type="password"
-      maxlength="20"
-      minlength="6"
-      formControlName="senha"
-      id="senha"
-      class="form-control"
-      disabled
+        maxlength="20"
+        minlength="6"
+        formControlName="senha"
+        id="senha"
+        class="form-control"
+        [value]="infosCliente.senha"
+        disabled
       />
     </div>
   </div>
@@ -112,10 +117,11 @@
         <label for="cep" class="control-label">CEP:</label>
         <div class="form-grup">
           <input type="text"
-          formControlName="cep"
-          id="cep"
-          class="form-control"
-          disabled
+            formControlName="cep"
+            id="cep"
+            class="form-control"
+            [value]="infosCliente.endereco.cep"
+            disabled
           />
         </div>
       </div>
@@ -124,10 +130,11 @@
         <div class="form-group">
           <label for="rua" class="control-label">Rua:</label>
           <input type="text"
-          formControlName="rua"
-          id="rua"
-          class="form-control"
-          disabled
+            formControlName="rua"
+            id="rua"
+            class="form-control"
+            [value]="infosCliente.endereco.rua"
+            disabled
           />
         </div>
       </div>
@@ -136,10 +143,11 @@
         <div class="form-group">
           <label for="numero" class="control-label">Número:</label>
           <input type="text"
-          formControlName="numero"
-          id="numero"
-          class="form-control"
-          disabled
+            formControlName="numero"
+            id="numero"
+            class="form-control"
+            [value]="infosCliente.endereco.numero"
+            disabled
           />
         </div>
       </div>
@@ -148,10 +156,11 @@
         <div class="form-group">
           <label for="bairro" class="control-label">Bairro:</label>
           <input type="text"
-          formControlName="bairro"
-          id="bairro"
-          class="form-control"
-          disabled
+            formControlName="bairro"
+            id="bairro"
+            class="form-control"
+            [value]="infosCliente.endereco.bairro"
+            disabled
           />
         </div>
       </div>
@@ -160,10 +169,11 @@
         <div class="form-group">
           <label for="cidade" class="control-label">Cidade:</label>
           <input type="text"
-          formControlName="cidade"
-          id="cidade"
-          class="form-control"
-          disabled
+            formControlName="cidade"
+            id="cidade"
+            class="form-control"
+            [value]="infosCliente.endereco.cidade"
+            disabled
           />
         </div>
       </div>
@@ -172,10 +182,11 @@
         <div class="form-group">
           <label for="estado" class="control-label">Estado:</label>
           <input type="text"
-          formControlName="estado"
-          id="estado"
-          class="form-control"
-          disabled
+            formControlName="estado"
+            id="estado"
+            class="form-control"
+            [value]="infosCliente.endereco.estado"
+            disabled
           />
         </div>
       </div>
@@ -186,10 +197,52 @@
     <div class="form-group">
       <label for="numeroCelular" class="control-label">Telefone:</label>
       <input type="text"
-      formControlName="numeroCelular"
-      id="numeroCelular"
-      class="form-control"
+        formControlName="numeroCelular"
+        id="numeroCelular"
+        class="form-control"
+        [value]="infosCliente.numeroCelular"
+        disabled
+      />
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <label for="estado" class="control-label">Tipo de conta:</label>
+    <input
+      type="text"
+      class="form-control mb-1"
       disabled
+      [value]="infosCliente.plano.tipoConta"
+    />
+    </div>
+    <div class="col-md-4">
+      <label for="cidade" class="control-label">Tipo de cartão:</label>
+      <input
+        type="text"
+        class="form-control mb-1"
+        disabled
+        [value]="infosCliente.plano.tipoCartao"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="bairro" class="control-label">Custo mensal:</label>
+      <input
+        type="text"
+        class="form-control mb-1"
+        disabled
+        [value]="infosCliente.plano.custoMensal"
+      />
+    </div>
+
+  <div class="row" *ngIf="infosCliente.urlImagem">
+    <div class="col-md-6">
+      <label for="urlImagem" class="control-label">Url Imagem</label>
+      <input
+        type="text"
+        class="form-control mb-1"
+        id="urlImagem"
+        disabled
+        [value]="infosCliente.urlImagem"
       />
     </div>
   </div>
@@ -200,6 +253,7 @@
       class="btn text-white btn-warning btn-block fw-bold"
       id="button"
       style="margin: 0 10px;"
+      (click)="confirmaDados()"
     >
       Confirmar
     </button>

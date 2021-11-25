@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DadosCliente } from './dados-cliente';
+import { InfosService } from './infos.service';
 
 @Component({
   selector: 'app-infos',
@@ -9,19 +10,39 @@ import { Router } from '@angular/router';
 })
 export class InfosComponent implements OnInit {
 
+  infosCliente!: DadosCliente;
+  cpf: string = '';
+
   constructor(
-    private http: HttpClient,
+    private infosService: InfosService,
     private router: Router,
-  ) { }
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams.subscribe((queryParams: Params) => {
+      this.cpf = queryParams['cpf'];
+    });
+    this.confirmaForm();
+   }
 
   ngOnInit(): void {
   }
 
-  confirmaForm() {}
+  confirmaForm() {
+    this.infosService.retornarDados(this.cpf).subscribe((dados) => {
+      const dadosRetornados: any = dados;
+      this.infosCliente = dadosRetornados.cliente;
+    });
+  }
 
-  onBack() { }
+  confirmaDados() {
+    this.router.navigate(['dashboard'])
+  }
 
-
+  onBack() {
+    this.router.navigate(['cadastro'], {
+      queryParams: { cpf: this.cpf, dataTrue: true },
+    });
+   }
 
 
 }
