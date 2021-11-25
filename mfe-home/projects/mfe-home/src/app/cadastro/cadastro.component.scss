@@ -4,16 +4,21 @@
 
 form {
   background: rgba(177, 175, 175, 0.05);
-  padding: 50px 70px;
+  padding: 40px 60px;
   border-radius: 20px;
+  margin-top: 2%;
 }
 
 label {
   font-size: 18px;
   color: #fa9a1c;
-  font-weight: 450;
+  font-weight: 500;
+
 }
 
-input {
-  width: 100%;
+h3 {
+  color: #fa9a1c;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
 }

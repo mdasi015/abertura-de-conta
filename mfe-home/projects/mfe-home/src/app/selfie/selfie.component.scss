@@ -1,12 +1,16 @@
-#container {
+.container {
+  width: 80%;
+  height: auto;
   margin-top: 2%;
-  align-items: center;
-  border-radius: 50px solid #ee9016;
+  padding: 30px 30px;
+  border-radius: 20px;
+  box-shadow: 15px 15px 200px rgba(248, 115, 26, 0.507);
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
 }
 
 
 #selfie {
-  width: 30%;
+  width: 40%;
   height: auto;
   align-items: center;
   text-align: center;
@@ -28,3 +32,17 @@
   margin-right: auto;
   align-items: center;
 }
+
+#btnEnviar {
+  width: 18%;
+  height: auto;
+  margin-left: 40%;
+}
+
+h5 {
+  color: #fa9a1c;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+}
+

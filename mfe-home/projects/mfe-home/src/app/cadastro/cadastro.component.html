@@ -10,6 +10,8 @@
   </div>
 </nav>
 
+<div class="container">
+  <h3>Preencha os dados cadastrais abaixo:</h3>
 <form class="row g-3" (ngSubmit)="onSubmit()" [formGroup]="cadastroForm">
 
   <div class="col-md-4">
@@ -97,26 +99,87 @@
     </div>
   </div>
 
-  <div class="col-12">
-    <label for="inputAddress2" class="form-label">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
+  <div formGroupName="endereco">
+    <div class="row">
+      <div class="col-md-2">
+        <label for="cep" class="control-label">CEP:</label>
+        <div class="form-grup" [ngClass]="aplicaCssErro('cep')">
+          <input type="text"
+          formControlName="cep"
+          id="cep"
+          class="form-control"
+          placeholder="CEP"
+          (blur)="consultaCEP()"
+          />
+        </div>
+      </div>
 
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="aplicaCssErro('rua')">
+          <label for="rua" class="control-label">Rua:</label>
+          <input type="text"
+          formControlName="rua"
+          id="rua"
+          class="form-control"
+          placeholder="Rua"/>
+        </div>
+      </div>
 
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">City</label>
-    <input type="text" class="form-control" id="inputCity">
-  </div>
+      <div class="col-md-2">
+        <div class="form-group" [ngClass]="aplicaCssErro('numero')">
+          <label for="numero" class="control-label">Número:</label>
+          <input type="text"
+          formControlName="numero"
+          id="numero"
+          class="form-control"
+          placeholder="Número"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="aplicaCssErro('bairro')">
+          <label for="bairro" class="control-label">Bairro:</label>
+          <input type="text"
+          formControlName="bairro"
+          id="bairro"
+          class="form-control"
+          placeholder="Bairro"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="aplicaCssErro('cidade')">
+          <label for="cidade" class="control-label">Cidade:</label>
+          <input type="text"
+          formControlName="cidade"
+          id="cidade"
+          class="form-control"
+          placeholder="Cidade"/>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group" [ngClass]="aplicaCssErro('estado')">
+          <label for="estado" class="control-label">Estado:</label>
+          <input type="text"
+          formControlName="estado"
+          id="estado"
+          class="form-control"
+          placeholder="Estado"/>
+        </div>
+      </div>
+    </div>
+</div>
+
   <div class="col-md-4">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
+    <div class="form-group" [ngClass]="aplicaCssErro('numeroCelular')">
+      <label for="numeroCelular" class="control-label">Telefone:</label>
+      <input type="text"
+      formControlName="numeroCelular"
+      id="numeroCelular"
+      class="form-control"
+      placeholder="Celular"/>
+    </div>
   </div>
 
   <div class="col-12">
@@ -139,6 +202,7 @@
     </button>
   </div>
 </form>
+</div>
 
 <!-- FOOTER -->
 <footer class="bg-light text-center text-white">

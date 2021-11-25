@@ -10,16 +10,33 @@
   </div>
 </nav>
 
+<h3> Escolha um dos Planos disponiveis: </h3>
+
 <div class="container">
-  <div *ngIf="listaPlanos">
-    <div *ngFor="let plano of listaPlanos">
-      <p> Custo Mensal: {{ plano.custoMensal }} </p>
-      <p> Tipo de Cartão: {{ plano.tipoCartao }} </p>
-      <p> Tipo de Conta: {{ plano.tipoConta }} </p>
-      <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngIf="listaPlanos">
+        <div *ngFor="let plano of listaPlanos">
+          <div class="card border-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header"> {{ plano.tipoConta }} </div>
+            <div class="card-body">
+              <h5 class="card-title"> {{ plano.tipoCartao }} </h5>
+              <p class="card-text"> {{ plano.custoMensal }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<form [formGroup]="formPlanos" (ngSubmit)="onSubmit()">
+  <select class="form-select" formControlName="_id">
+    <option selected> Selecione um Plano </option>
+    <option *ngFor="let plano of listaPlanos" [value]="plano._id"> {{ plano.tipoConta }} </option>
+  </select>
+  <button [disabled]="!formPlanos.valid" class="btn btn-primary"> Enviar </button>
+</form>
 
 <!-- FOOTER -->
 <footer class="bg-light text-center text-white">
