@@ -4,6 +4,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormValidatorsComponent } from '../form-validators/form-validators.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,9 @@ import { FormValidatorsComponent } from '../form-validators/form-validators.comp
         HomeRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+        NgxMaskModule.forRoot({
+          dropSpecialCharacters: true
+        })
     ],
     providers: []
 })

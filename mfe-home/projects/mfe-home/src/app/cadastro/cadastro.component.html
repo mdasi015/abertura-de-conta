@@ -18,12 +18,16 @@
     <div class="form-group" [ngClass]="aplicaCssErro('cpf')">
       <label for="cpf" class="control-label">CPF:</label>
       <input type="text"
-      maxlength="11"
-      minlength="11"
-      formControlName="cpf"
-      id="cpf"
-      class="form-control"
-      placeholder="CPF"/>
+        formControlName="cpf"
+        id="cpf"
+        class="form-control"
+        placeholder="CPF"
+      />
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('cpf')!.valid && cadastroForm.get('cpf')!.touched">
+          CPF é obrigatório.
+      </div>
     </div>
   </div>
 
@@ -31,10 +35,16 @@
     <div class="form-group" [ngClass]="aplicaCssErro('nomeCompleto')">
       <label for="nomeCompleto" class="control-label">Nome Completo:</label>
       <input type="text"
-      formControlName="nomeCompleto"
-      id="nomeCompleto"
-      class="form-control"
-      placeholder="Nome Completo"/>
+        formControlName="nomeCompleto"
+        id="nomeCompleto"
+        class="form-control"
+        placeholder="Nome Completo"/>
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('nomeCompleto')!.valid && cadastroForm.get('nomeCompleto')!.touched">
+          Nome completo é obrigatório.
+      </div>
     </div>
   </div>
 
@@ -42,10 +52,18 @@
     <div class="form-group" [ngClass]="aplicaCssErro('email')">
       <label for="email" class="control-label">E-mail:</label>
       <input type="email"
-      formControlName="email"
-      id="email"
-      class="form-control"
-      placeholder="exemple@exemple.com"/>
+       formControlName="email"
+        id="email"
+        class="form-control"
+        placeholder="exemple@exemple.com"
+        email
+      />
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('email')!.valid && cadastroForm.get('email')!.touched">
+          E-mail é obrigatório.
+      </div>
     </div>
   </div>
 
@@ -53,10 +71,16 @@
     <div class="form-group" [ngClass]="aplicaCssErro('dataNascimento')">
       <label for="dataNascimento" class="control-label">Data de Nascimento:</label>
       <input type="date"
-      formControlName="dataNascimento"
-      id="dataNascimento"
-      class="form-control"
-      placeholder="data de nascimento"/>
+        formControlName="dataNascimento"
+        id="dataNascimento"
+        class="form-control"
+      />
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('dataNascimento')!.valid && cadastroForm.get('dataNascimento')!.touched">
+          Data de Nascimento é obrigatório.
+      </div>
     </div>
   </div>
 
@@ -64,10 +88,10 @@
     <div class="form-group" [ngClass]="aplicaCssErro('dataCadastro')">
       <label for="dataCadastro" class="control-label">Data de Cadastro:</label>
       <input type="date"
-      formControlName="dataCadastro"
-      id="dataCadastro"
-      class="form-control"
-      placeholder="data de cadastro"/>
+        formControlName="dataCadastro"
+        id="dataCadastro"
+        class="form-control"
+      />
     </div>
   </div>
 
@@ -75,10 +99,17 @@
     <div class="form-group" [ngClass]="aplicaCssErro('salarioMensal')">
       <label for="salarioMensal" class="control-label">Salario Mensal:</label>
       <input type="text"
-      formControlName="salarioMensal"
-      id="salarioMensal"
-      class="form-control"
-      placeholder="Salario Mensal"/>
+        formControlName="salarioMensal"
+        id="salarioMensal"
+        class="form-control"
+        placeholder="Salario Mensal"
+        />
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('salarioMensal')!.valid && cadastroForm.get('salarioMensal')!.touched">
+          Salario é obrigatório.
+      </div>
     </div>
   </div>
 
@@ -86,12 +117,17 @@
     <div class="form-group" [ngClass]="aplicaCssErro('senha')">
       <label for="senha" class="control-label">Senha:</label>
       <input type="password"
-      maxlength="20"
-      minlength="6"
-      formControlName="senha"
-      id="senha"
-      class="form-control"
-      placeholder="Senha"/>
+        formControlName="senha"
+        id="senha"
+        class="form-control"
+        placeholder="Senha"
+        />
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('senha')!.valid && cadastroForm.get('senha')!.touched">
+          Senha precisa ser maior que 6 caracteres.
+      </div>
     </div>
   </div>
 
@@ -101,12 +137,17 @@
         <label for="cep" class="control-label">CEP:</label>
         <div class="form-grup" [ngClass]="aplicaCssErro('cep')">
           <input type="text"
-          formControlName="cep"
-          id="cep"
-          class="form-control"
-          placeholder="CEP"
-          (blur)="consultaCEP()"
+            formControlName="cep"
+            id="cep"
+            class="form-control"
+            placeholder="CEP"
+            (blur)="consultaCEP()"
           />
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.cep')!.valid && cadastroForm.get('endereco.cep')!.touched">
+              Por favor, informe um CEP válido.
+          </div>
         </div>
       </div>
 
@@ -114,10 +155,17 @@
         <div class="form-group" [ngClass]="aplicaCssErro('rua')">
           <label for="rua" class="control-label">Rua:</label>
           <input type="text"
-          formControlName="rua"
-          id="rua"
-          class="form-control"
-          placeholder="Rua"/>
+            formControlName="rua"
+            id="rua"
+            class="form-control"
+            placeholder="Rua"
+          />
+
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.rua')!.valid && cadastroForm.get('endereco.rua')!.touched">
+              Nome da rua é obrigatório.
+          </div>
         </div>
       </div>
 
@@ -125,10 +173,17 @@
         <div class="form-group" [ngClass]="aplicaCssErro('numero')">
           <label for="numero" class="control-label">Número:</label>
           <input type="text"
-          formControlName="numero"
-          id="numero"
-          class="form-control"
-          placeholder="Número"/>
+            formControlName="numero"
+            id="numero"
+            class="form-control"
+            placeholder="Número"
+          />
+
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.numero')!.valid && cadastroForm.get('endereco.numero')!.touched">
+              Número é obrigatório.
+          </div>
         </div>
       </div>
 
@@ -136,10 +191,17 @@
         <div class="form-group" [ngClass]="aplicaCssErro('bairro')">
           <label for="bairro" class="control-label">Bairro:</label>
           <input type="text"
-          formControlName="bairro"
-          id="bairro"
-          class="form-control"
-          placeholder="Bairro"/>
+            formControlName="bairro"
+            id="bairro"
+            class="form-control"
+            placeholder="Bairro"
+          />
+
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.bairro')!.valid && cadastroForm.get('endereco.bairro')!.touched">
+              Bairro é obrigatório.
+          </div>
         </div>
       </div>
 
@@ -147,10 +209,17 @@
         <div class="form-group" [ngClass]="aplicaCssErro('cidade')">
           <label for="cidade" class="control-label">Cidade:</label>
           <input type="text"
-          formControlName="cidade"
-          id="cidade"
-          class="form-control"
-          placeholder="Cidade"/>
+            formControlName="cidade"
+            id="cidade"
+            class="form-control"
+            placeholder="Cidade"
+          />
+
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.cidade')!.valid && cadastroForm.get('endereco.cidade')!.touched">
+              Cidade é obrigatório.
+          </div>
         </div>
       </div>
 
@@ -158,10 +227,17 @@
         <div class="form-group" [ngClass]="aplicaCssErro('estado')">
           <label for="estado" class="control-label">Estado:</label>
           <input type="text"
-          formControlName="estado"
-          id="estado"
-          class="form-control"
-          placeholder="Estado"/>
+            formControlName="estado"
+            id="estado"
+            class="form-control"
+            laceholder="Estado"
+          />
+
+          <div
+            class="alert alert-danger" role="alert"
+            *ngIf="!cadastroForm.get('endereco.estado')!.valid && cadastroForm.get('endereco.estado')!.touched">
+              Estado é obrigatório.
+          </div>
         </div>
       </div>
     </div>
@@ -171,10 +247,17 @@
     <div class="form-group" [ngClass]="aplicaCssErro('numeroCelular')">
       <label for="numeroCelular" class="control-label">Telefone:</label>
       <input type="text"
-      formControlName="numeroCelular"
-      id="numeroCelular"
-      class="form-control"
-      placeholder="Celular"/>
+        formControlName="numeroCelular"
+        id="numeroCelular"
+        class="form-control"
+        placeholder="Celular"
+      />
+
+      <div
+        class="alert alert-danger" role="alert"
+        *ngIf="!cadastroForm.get('numeroCelular')!.valid && cadastroForm.get('numeroCelular')!.touched">
+          Número de celular é obrigatório.
+      </div>
     </div>
   </div>
 

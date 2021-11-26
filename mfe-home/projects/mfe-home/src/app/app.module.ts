@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { HomeModule } from './home/home.module';
 import { SelfieModule } from './selfie/selfie.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { SelfieModule } from './selfie/selfie.module';
     FormsModule,
     ReactiveFormsModule,
     CadastroModule,
-    SelfieModule
+    SelfieModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true  // ao salvar, vai manter a mascara
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
