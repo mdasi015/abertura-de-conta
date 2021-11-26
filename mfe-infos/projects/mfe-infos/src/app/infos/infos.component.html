@@ -12,8 +12,8 @@
 
 <div class="container">
   <h3>Confirme os dados informados</h3>
-<form class="row g-3" (ngSubmit)="confirmaForm()">
 
+<div class="row g-3">
   <div class="col-md-4">
     <div class="form-group">
       <label for="cpf" class="control-label">CPF:</label>
@@ -253,7 +253,7 @@
       class="btn text-white btn-warning btn-block fw-bold"
       id="button"
       style="margin: 0 10px;"
-      (click)="confirmaDados()"
+      [routerLink]="['/dashboard']"
     >
       Confirmar
     </button>
@@ -265,8 +265,9 @@
     >
       Voltar
     </button>
+
   </div>
-</form>
+</div>
 </div>
 
 <!-- FOOTER -->
@@ -281,17 +282,7 @@
         style="background-color: #3b5998;"
         href="#!"
         role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #55acee;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
+        ><i class="bi bi-facebook"></i></a>
 
       <!-- Google -->
       <a
@@ -299,8 +290,7 @@
         style="background-color: #dd4b39;"
         href="#!"
         role="button"
-        ><i class="fab fa-google"></i
-      ></a>
+        ><i class="bi bi-google"></i></a>
 
       <!-- Instagram -->
       <a
@@ -308,8 +298,7 @@
         style="background-color: #ac2bac;"
         href="#!"
         role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
+        ><i class="bi bi-instagram"></i></a>
 
       <!-- Linkedin -->
       <a
@@ -317,16 +306,15 @@
         style="background-color: #0082ca;"
         href="#!"
         role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
+        ><i class="bi bi-linkedin"></i></a>
+
       <!-- Github -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #333333;"
         href="#!"
         role="button"
-        ><i class="fab fa-github"></i
-      ></a>
+        ><i class="bi bi-github"></i></a>
     </section>
     <!-- Section: Social media -->
   </div>

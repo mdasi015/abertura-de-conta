@@ -65,7 +65,7 @@ export class PlanosComponent implements OnInit {
       });
 
     if (planoEscolhido) {
-      this.router.navigate(['/infos'], {
+      this.router.navigate(['infos'], {
         queryParams: {
           cpf: this.cpf
         },

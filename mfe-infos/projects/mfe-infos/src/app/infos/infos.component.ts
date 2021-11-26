@@ -17,14 +17,14 @@ export class InfosComponent implements OnInit {
     private infosService: InfosService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
+  ) {}
+
+  ngOnInit(): void {
+
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
     });
     this.confirmaForm();
-   }
-
-  ngOnInit(): void {
   }
 
   confirmaForm() {
@@ -34,15 +34,10 @@ export class InfosComponent implements OnInit {
     });
   }
 
-  confirmaDados() {
-    this.router.navigate(['dashboard'])
-  }
-
   onBack() {
     this.router.navigate(['cadastro'], {
       queryParams: { cpf: this.cpf, dataTrue: true },
     });
-   }
-
+  }
 
 }

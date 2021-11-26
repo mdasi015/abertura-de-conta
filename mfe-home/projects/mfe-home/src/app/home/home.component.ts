@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
     const cpfCliente = this.cadastroForm.value.cpf
     this.homeService.verificarCPF(cpfCliente)
     .subscribe((infos) => {
-      const dados: any = infos.cliente
-      if (dados) {
+      const dados: any = infos
+      if (dados.cliente) {
         this.router.navigate(['cadastro'], { queryParams: { cpf: cpfCliente , dataTrue: true } });
       } else {
         this.router.navigate(['cadastro'], { queryParams: { cpf: cpfCliente } });

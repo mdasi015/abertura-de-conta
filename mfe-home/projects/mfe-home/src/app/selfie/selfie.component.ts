@@ -1,7 +1,6 @@
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-selfie',

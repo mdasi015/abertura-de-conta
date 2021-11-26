@@ -1,7 +1,36 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
 h3 {
   color: #fa9a1c;
   font-weight: bold;
   margin-top: 15px;
   text-align: center;
 }
+
+#planos {
+  padding: 0 0 50px;
+  min-height: 100vh;
+}
+
+.card-planos {
+  border: 3px solid;
+  width: calc(50% - 10px);
+  margin: 0 auto 10px 0;
+}
+
+#listaplanos {
+  margin: 0 auto;
+  width: calc(40% - 10px);
+  height: 50%;
+  padding: 25px;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 40px;
+}
+
+
 

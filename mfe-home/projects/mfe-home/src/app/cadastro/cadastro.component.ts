@@ -71,12 +71,16 @@ export class CadastroComponent implements OnInit {
   }
 
   popularDados(dados: DadosCadastrais) {
+
+    const dataNasci = this.mascaraData(dados.dataNascimento);
+    const dataCad = this.mascaraData(dados.dataCadastro);
+
     this.cadastroForm.patchValue({
       nomeCompleto: dados.nomeCompleto,
       email: dados.email,
       cpf: dados.cpf,
-      dataNascimento: dados.dataNascimento,
-      dataCadastro: dados.dataCadastro,
+      dataNascimento: dataNasci,
+      dataCadastro: dataCad,
       salarioMensal: dados.salarioMensal,
       senha: dados.senha,
       numeroCelular: dados.numeroCelular,
@@ -130,6 +134,11 @@ export class CadastroComponent implements OnInit {
 
   resetar() {
     this.cadastroForm.reset();
+  }
+
+  mascaraData(data: string) {
+    const date = data.split('/');
+    return [date[2], date[1], date[0]].join('-');
   }
 
   verificaValidTouched(campo: any){

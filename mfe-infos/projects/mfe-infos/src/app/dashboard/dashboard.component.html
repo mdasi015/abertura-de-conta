@@ -1,1 +1,244 @@
-<p>dashboard works!</p>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark custom" style="background-color: rgba(250, 138, 34, 0.932);">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/logo/logo2.png" alt="" width="60" height="50">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active fs-5 fw-bold" aria-current="page" href="#">O MRN Bank</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fs-5 fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pra você
+          </a>
+          <ul class="dropdown-menu fs-5 fw-bold" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Conta corrente</a></li>
+            <li><a class="dropdown-item" href="#">Investimentos</a></li>
+            <li><a class="dropdown-item" href="#">Cartões</a></li>
+            <li><a class="dropdown-item" href="#">Emprestimos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fs-5 fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Empresas
+          </a>
+          <ul class="dropdown-menu fs-4" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Conta Digital</a></li>
+            <li><a class="dropdown-item" href="#">Financiamento imobiliario</a></li>
+            <li><a class="dropdown-item" href="#">Seguros</a></li>
+            <li><a class="dropdown-item" href="#">Emprestimos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-bold" href="https://www.itau.com.br/investimentos/blog-investidor/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 fw-bold" href="https://www.itau.com.br/atendimento-itau/para-voce/">Ajuda</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link fs-5 fw-bold" href="#">Serviços</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <a><i class="bi-box-arrow-in-right" (click)="logout()">Logout</i></a>
+</nav>
+
+<div class="container">
+  <section>
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <h3 class="text-uppercase">Seja Bem-vindo!</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-person-lines-fill"></i>
+              </div>
+              <div class="text-end">
+                <p class="mb-0">Minha Conta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-credit-card-2-front-fill" style="margin: 0 15px;"></i>
+                <i class="bi bi-credit-card"></i>
+              </div>
+              <div class="text-end">
+                <p class="mb-0">Cartões</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-upc-scan"></i>
+              </div>
+              <div class="text-end">
+                <p class="mb-0">Pagamentos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-x-diamond-fill"></i>
+              </div>
+              <div class="text-end">
+                <p class="mb-0">PIX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-arrow-left-right"></i>
+              </div>
+              <div>
+                <p class="mb-0">Tranferencias</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-truck"></i>
+              </div>
+              <div>
+                <p class="mb-0">Consórcio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div>
+                <p class="mb-0">Investimentos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="bi bi-cash-coin"></i>
+              </div>
+              <div>
+                <p class="mb-0">Empréstimo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <i class="bi bi-whatsapp"></i>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="bi-facebook"></i></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="bi-google"></i></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="bi-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="bi-linkedin"></i></a>
+
+      <!-- Github -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="bi-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="#">MRN Bank </a>
+  </div>
+  <!-- Copyright -->
+</footer>
