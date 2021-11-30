@@ -23,12 +23,13 @@ export class InfosComponent implements OnInit {
 
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
+      this.confirmaForm(this.cpf);
     });
-    this.confirmaForm();
+
   }
 
-  confirmaForm() {
-    this.infosService.retornarDados(this.cpf).subscribe((dados) => {
+  confirmaForm(cpf: string) {
+    this.infosService.retornarDados(cpf).subscribe((dados) => {
       const dadosRetornados: any = dados;
       this.infosCliente = dadosRetornados.cliente;
     });

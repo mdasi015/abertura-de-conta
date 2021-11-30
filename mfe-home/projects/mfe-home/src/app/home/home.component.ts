@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   consultaCPF() {
-    console.log(this.cadastroForm);
+    //console.log(this.cadastroForm);
     const cpfCliente = this.cadastroForm.value.cpf
     this.homeService.verificarCPF(cpfCliente)
     .subscribe((infos) => {
@@ -36,8 +36,6 @@ export class HomeComponent implements OnInit {
       } else {
         this.router.navigate(['cadastro'], { queryParams: { cpf: cpfCliente } });
       }
-    }, (error) => {
-      console.log(`${error} Erro ao consultar API!`);
     });
   }
 
