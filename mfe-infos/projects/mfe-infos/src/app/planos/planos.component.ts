@@ -38,14 +38,14 @@ export class PlanosComponent implements OnInit {
 
   selecionarPlanos(salarioMensal: string) {
     this.servicePlanos.listasPlanos(salarioMensal)
-      .subscribe(dados => {
+      .subscribe((dados: any) => {
         console.log(dados);
 
         const arrayPlanos: any = dados;
 
         this.listaPlanos = arrayPlanos.planos
         console.log(this.listaPlanos);
-      })
+      });
   }
 
   onSubmit() {
@@ -54,9 +54,9 @@ export class PlanosComponent implements OnInit {
     const alteracaoPlano: AlterarPlanos = {
       cpf: this.cpf,
       plano: {
-      custoMensal: planoEscolhido[0].custoMensal,
-      tipoCartao: planoEscolhido[0].tipoCartao,
-      tipoConta: planoEscolhido[0].tipoConta
+        custoMensal: planoEscolhido[0].custoMensal,
+        tipoCartao: planoEscolhido[0].tipoCartao,
+        tipoConta: planoEscolhido[0].tipoConta,
       }
     }
     this.servicePlanos.alterarPlanos(alteracaoPlano)
@@ -77,7 +77,7 @@ export class PlanosComponent implements OnInit {
   filtroDeplanos(id: string) {
     const planoSelecionado = this.listaPlanos.filter(plano => {
       return plano._id === id;
-    })
+    });
     return planoSelecionado;
   }
 
