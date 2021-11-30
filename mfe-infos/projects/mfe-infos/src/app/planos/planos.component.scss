@@ -9,15 +9,18 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  color: #fa9a1c;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+  border: 3px solid #fa9a1c;
+  background-color: rgba(255, 166, 0, 0.432);
+}
+
 #planos {
   padding: 0 0 50px;
   min-height: 100vh;
-}
-
-.card-planos {
-  border: 3px solid;
-  width: calc(50% - 10px);
-  margin: 0 auto 10px 0;
 }
 
 #listaplanos {
