@@ -16,6 +16,7 @@ export class CadastroComponent implements OnInit {
   clienteDados: any = '';
   cpf = '';
   userData = false;
+  today: number = Date.now();
 
   constructor(
     private cadastroService: CadastroService,

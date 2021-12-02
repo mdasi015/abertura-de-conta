@@ -84,10 +84,12 @@
     </div>
   </div>
 
-  <div class="col-md-3">
+ <div class="col-md-3">
     <div class="form-group" [ngClass]="aplicaCssErro('dataCadastro')">
       <label for="dataCadastro" class="control-label">Data de Cadastro:</label>
       <input type="date"
+        [ngModel] ="today | date:'yyyy-MM-dd'"
+        (ngModelChange)="today = $event" [value]="today | date:'yyyy-MM-dd'"
         formControlName="dataCadastro"
         id="dataCadastro"
         class="form-control"
